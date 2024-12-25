@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Tỷ Giá Ngoại Tệ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #0077b6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bảng Tỷ Giá Ngoại Tệ</h1>
+        <p>Cập nhật tự động từ nguồn ACB</p>
+    </header>
+
+    <table id="currencyTable">
+        <thead>
+            <tr>
+                <th>Loại tiền</th>
+                <th>Mua vào tiền mặt</th>
+                <th>Mua vào chuyển khoản</th>
+                <th>Bán ra tiền mặt</th>
+                <th>Bán ra chuyển khoản</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dữ liệu sẽ được thêm vào đây qua JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Mô phỏng dữ liệu bảng tỷ giá (thay bằng dữ liệu thực nếu cần)
+        const exchangeRates = [
+            { currency: "USD (50, 100)", cashBuy: "25,220", transferBuy: "25,250", cashSell: "25,536", transferSell: "25,536" },
+            { currency: "USD (5, 10, 20)", cashBuy: "24,800", transferBuy: "24,850", cashSell: "25,000", transferSell: "25,000" },
+            { currency: "EUR", cashBuy: "27,000", transferBuy: "27,050", cashSell: "28,000", transferSell: "28,000" },
+            { currency: "AUD", cashBuy: "15,600", transferBuy: "15,650", cashSell: "16,240", transferSell: "16,240" },
+            { currency: "CAD", cashBuy: "17,358", transferBuy: "17,400", cashSell: "18,062", transferSell: "18,062" }
+        ];
+
+        const tableBody = document.querySelector("#currencyTable tbody");
+
+        exchangeRates.forEach(rate => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${rate.currency}</td>
+                <td>${rate.cashBuy}</td>
+                <td>${rate.transferBuy}</td>
+                <td>${rate.cashSell}</td>
+                <td>${rate.transferSell}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
